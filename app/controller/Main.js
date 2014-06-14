@@ -42,7 +42,7 @@ Ext.define('Truespeed.controller.Main', {
 	},
 	
 	onBackTap: function() {
-		var mainScreen = Ext.getCmp('startScreen');
+		var mainScreen = Ext.getCmp('mainScreen');
 		
 		if (mainScreen.getActiveItem() == Ext.getCmp('textScreen')) {
 			mainScreen.setActiveItem(Ext.getCmp('chartScreen'));
@@ -57,14 +57,14 @@ Ext.define('Truespeed.controller.Main', {
         var units = formPanel.getValues();
      	Truespeed.controller.Functions.setUnits(units);
        	var mainScreen = Ext.getCmp('mainScreen');
-    	mainScreen.setActiveItem(Ext.getCmp('startScreen'));
+    	mainScreen.setActiveItem(Ext.getCmp('homeScreen'));
     },
     
     onMapTap: function() {
 		var mainScreen = Ext.getCmp('mainScreen');
 		
 		if (mainScreen.getActiveItem() == Ext.getCmp('wayMap')) {
-			mainScreen.setActiveItem(Ext.getCmp('startScreen'));
+			mainScreen.setActiveItem(Ext.getCmp('homeScreen'));
         } 
         else {
         	mainScreen.setActiveItem(Ext.getCmp('wayMap'));
@@ -85,7 +85,7 @@ Ext.define('Truespeed.controller.Main', {
         }, 300);
         
         var mainScreen = Ext.getCmp('mainScreen');
-    	mainScreen.setActiveItem(Ext.getCmp('startScreen'));
+    	mainScreen.setActiveItem(Ext.getCmp('homeScreen'));
     	
     	var mapButton = Ext.getCmp('mapBtn');
         mapButton.hide();

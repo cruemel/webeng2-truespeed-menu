@@ -4,7 +4,7 @@ Ext.define('Truespeed.view.Main', {
     id: 'mainScreen',
     
     requires: [
-        'Ext.TitleBar', 'Ext.Button', 'Ext.Menu', 'Truespeed.view.Start', 'Truespeed.view.Options', 'Truespeed.view.Data', 'Truespeed.view.Info', 'Truespeed.view.Map'
+        'Ext.TitleBar', 'Ext.Button', 'Ext.Menu', 'Truespeed.view.Home', 'Truespeed.view.Chart', 'Truespeed.view.Text','Truespeed.view.Options', 'Truespeed.view.Data', 'Truespeed.view.Info', 'Truespeed.view.Map'
     ],
     
     config: {
@@ -47,7 +47,13 @@ Ext.define('Truespeed.view.Main', {
                 ]
             },
             {
-                xtype: 'startView',
+                xtype: 'homeView',
+            },
+             {
+                xtype: 'chartView',
+            },
+            {
+                xtype: 'textView',
             },
              {
                 xtype: 'optionsView'
@@ -115,10 +121,7 @@ Ext.define('Truespeed.view.Main', {
                 scope: this,
                 handler: function() {
                     Ext.Viewport.hideMenu(side);
-                    var startScreen = Ext.getCmp('startScreen');
-                    var homeScreen = Ext.getCmp('homeScreen');
-                    mainScreen.setActiveItem(startScreen);
-                    startScreen.setActiveItem(homeScreen);
+                    mainScreen.setActiveItem(Ext.getCmp('homeScreen'));
                 }
             }
         ];

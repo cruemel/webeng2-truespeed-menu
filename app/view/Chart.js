@@ -142,10 +142,8 @@ Ext.define('Truespeed.view.Chart', {
             				panel.destroy();
             				
     						var mainScreen = Ext.getCmp('mainScreen');
-    						var startScreen = Ext.getCmp('startScreen');
     						var nextScreen = Ext.getCmp('textScreen');
-    						mainScreen.setActiveItem(startScreen);
-    						startScreen.setActiveItem(nextScreen);
+    						mainScreen.setActiveItem(nextScreen);
        					 }
        					 
     				}
