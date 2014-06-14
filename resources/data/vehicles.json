@@ -1,0 +1,41 @@
+[
+  {
+    "id" : 1,
+    "name" : "car",
+    "price" : 20000,
+    "consumption" : 6,
+    "fuel" : 1.5,
+    "insurance" : 500,
+    "tax" : 250,
+    "maintenance" : 800,
+    "other" : 150,
+    "years" : 10,
+    "usage" : 20
+  },
+  {
+    "id" : 2,
+    "name" : "bike",
+    "price" : 1500,
+    "consumption" : 0,
+    "fuel" : 0,
+    "insurance" : 250,
+    "tax" : 0,
+    "maintenance" : 100,
+    "other" : 0,
+    "years" : 5,
+    "usage" : 30
+  },
+  {
+    "id" : 3,
+    "name" : "public",
+    "price" : 0,
+    "consumption" : 0,
+    "fuel" : 0,
+    "insurance" : 0,
+    "maintenance" : 0,
+    "tax" : 0,
+    "other" : 600,
+    "years" : 1,
+    "usage" : 40
+  }
+]

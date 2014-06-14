@@ -1,0 +1,20 @@
+[
+  {
+    "name" : "Mario",
+    "vehicle" : 1,
+     "way" : 1,
+    "time" : 1
+  },
+  {
+    "name" : "Daisy",
+    "vehicle" : 2,
+    "way" : 2,
+    "time" : 2
+  },
+  {
+    "name" : "You",
+    "vehicle" : 3,
+    "way" : 3,
+    "time" : 3
+  }
+]

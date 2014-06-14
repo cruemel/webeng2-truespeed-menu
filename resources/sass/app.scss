@@ -1,0 +1,105 @@
+// global_css
+
+$active-color: #CC9933;
+$alert-color: #CC6633;
+
+$base-color: #a0a0a0;
+$base-gradient: 'none';
+
+$confirm-color: #75A48B;
+
+$font-family: Andale Mono, monospace;
+
+$page-bg-color: #f2eee3;
+$form-bg-color: $page-bg-color;
+
+$toolbar-spacing: 2em;
+
+@import 'sencha-touch/default/';
+@import 'sencha-touch/default/all';
+
+/*
+@import 'sencha-touch/default/src/_Button.scss';
+@import 'sencha-touch/default/src/_Class.scss';
+@import 'sencha-touch/default/src/_MessageBox.scss';
+@import 'sencha-touch/default/src/_Panel.scss';
+@import 'sencha-touch/default/src/_Toolbar.scss'; 
+
+@import 'sencha-touch/default/src/field/_Checkbox.scss';
+@import 'sencha-touch/default/src/field/_Field.scss';
+@import 'sencha-touch/default/src/field/_Select.scss';
+
+@import 'sencha-touch/default/src/form/_FieldSet.scss';
+@import 'sencha-touch/default/src/form/_Panel.scss';
+
+@import 'sencha-touch/default/src/tab/_Panel.scss';
+*/
+
+@include icon('settings','y');
+@include icon('maps','G');
+@include icon('home','H');
+@include icon('text','F');
+@include icon('chart','Y');
+@include icon('data','b');
+@include icon('info','i');
+
+// xtypes
+
+.x-toolbar {
+	background-color: #333333;
+	.x-title {
+        font: {
+        	size: 1.2em;
+        }
+		color: #ffffff;
+	}
+}
+
+.x-tabbar {
+    border-width: 0 !important;
+    height: 20px;
+	.x-tab-active {
+		.x-button-icon {
+			color: #993333;
+		}
+	}
+}
+
+.x-chart-watermark {
+	display: none;
+}
+
+.x-button.x-button-pressed {
+	color: #75A48B;
+}
+
+// cls
+
+.textview {
+    font: {
+        size: 1.4em;
+    }
+    color: #000000;
+    line-height: 1.2em;
+    letter-spacing: -1px;
+    padding: 0.8em;
+}
+
+.gray .x-input-text {
+	color: #dddddd;
+}
+
+.home .x-input-text {
+	color: #75A48B;
+}
+
+.work .x-input-text {
+	color: #CC6633;
+}
+
+.logo {
+    background: url('../images/logo.png')  no-repeat center;
+    width: 107px; 
+    height: 32px;
+}
+

@@ -1,0 +1,50 @@
+[ 
+     {
+		"id" : 1,
+		"transport" : "car",
+		"costs" : 1,
+		"spendings" : 1,
+		"upkeeping" : 1, 
+		"vehicletotal" : 1,
+		"waytotal" : 1,
+		"timeway" : 1, 
+		"timework" : 1,
+		"timetotal" : 1,
+		"speed" : 1,
+		"distance" : "km",
+		"capacity" : "ltr",
+		"currency" : "EUR"
+    },
+     {
+    	"id": 2,
+		"transport" : "bike",
+		"costs" : 2,
+		"spendings" : 2,
+		"upkeeping" : 2, 
+		"vehicletotal" : 2,
+		"waytotal" : 2,
+		"timeway" : 2, 
+		"timework" : 2,
+		"timetotal" : 2,
+		"speed" : 2,
+		"distance" : "km",
+		"capacity" : "ltr",
+		"currency" : "EUR"
+    },
+    {
+    	"id" : 3,
+		"transport" : "public transport",
+		"costs" : 3,
+		"spendings" : 3,
+		"upkeeping" : 3, 
+		"vehicletotal" : 3,
+		"waytotal" : 3,
+		"timeway" : 3, 
+		"timework" : 3,
+		"timetotal" : 3,
+		"speed" : 3,
+		"distance" : "km",
+		"capacity" : "ltr",
+		"currency" : "EUR"
+    }
+]
