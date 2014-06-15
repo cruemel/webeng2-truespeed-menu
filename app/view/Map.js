@@ -232,7 +232,7 @@ Ext.define('Truespeed.view.Map', {
 				wayStore.getData().get(way).set('duration',duration);
 				Truespeed.controller.Functions.updateWay();
     			var mainScreen = Ext.getCmp('mainScreen');
-				mainScreen.setActiveItem(Ext.getCmp('startScreen'));
+				mainScreen.setActiveItem(Ext.getCmp('dataScreen'));
             }
             else {
             	 console.log("Sorry, but something went wrong.");
