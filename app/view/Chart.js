@@ -75,6 +75,16 @@ Ext.define('Truespeed.view.Chart', {
          						return  text + ' ' + unit;
      						}
                         },
+                        
+                        listeners:{
+                        	itemtap: function(me, item, event) {	
+								// console.log(item.record.data.id);
+								var tables = Ext.data.StoreManager.get('Users');
+								tables.getData().getAt(0).set('vehicle', item.record.data.id);
+								var mainScreen = Ext.getCmp('mainScreen');
+    							mainScreen.setActiveItem(Ext.getCmp('textScreen'));
+							}
+				        },
         				
                         renderer: function (sprite, config, rendererData, index) {
                             if (index == 1) {
@@ -97,9 +107,10 @@ Ext.define('Truespeed.view.Chart', {
                         }
                         
                     }
-                ],
+                ]
                 
-                 interactions: [{
+                 /* interactions: [{
+                      
     				type: 'iteminfo',
     				listeners: {
     					
@@ -133,21 +144,17 @@ Ext.define('Truespeed.view.Chart', {
 									return isMiles;
 								}
     						});
-    						*/
     						
-    						// panel.setHtml(tpl.apply(data));
-    						// var toolbar = Ext.ComponentQuery.query('toolbar')[1];
-    						// toolbar.setTitle('Details');
-    						
-            				panel.destroy();
+    						panel.setHtml(tpl.apply(data));
+    						var toolbar = Ext.ComponentQuery.query('toolbar')[1];
+    						toolbar.setTitle('Details');
             				
     						var mainScreen = Ext.getCmp('mainScreen');
     						var nextScreen = Ext.getCmp('textScreen');
     						mainScreen.setActiveItem(nextScreen);
        					 }
-       					 
-    				}
-				}]
+
+				}] */
             },
                 
             {
