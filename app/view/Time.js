@@ -85,6 +85,7 @@ Ext.define('Truespeed.view.Time', {
             	]
             }      
     	],
+    	
     	listeners: {
         	painted: function() {
         		Truespeed.controller.Functions.updateTime();

@@ -64,7 +64,7 @@ Ext.define('Truespeed.controller.Main', {
 		var mainScreen = Ext.getCmp('mainScreen');
 		
 		if (mainScreen.getActiveItem() == Ext.getCmp('wayMap')) {
-			mainScreen.setActiveItem(Ext.getCmp('homeScreen'));
+			mainScreen.setActiveItem(Ext.getCmp('dataScreen'));
         } 
         else {
         	mainScreen.setActiveItem(Ext.getCmp('wayMap'));

@@ -51,6 +51,7 @@ Ext.define('Truespeed.view.Home', {
 				}	
 			}
     	],
+    	
     	listeners: {
             painted: function() {
         		Truespeed.controller.Functions.updateTagline();

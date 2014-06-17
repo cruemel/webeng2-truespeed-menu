@@ -73,14 +73,15 @@ Ext.define('Truespeed.view.Options', {
             		}		
             	]
             }
-        ]
-    },
-    listeners: {
-        painted: function() {
-        	var backButton = Ext.getCmp('backBtn');
-            backButton.hide();
-            var mapButton = Ext.getCmp('mapBtn');
-            mapButton.hide();
-        }
-    }   
+        ],
+        
+        listeners: {
+        	painted: function() {
+        		var backButton = Ext.getCmp('backBtn');
+           	 	backButton.hide();
+            	var mapButton = Ext.getCmp('mapBtn');
+            	mapButton.hide();
+        	}
+    	}   
+    }
 });

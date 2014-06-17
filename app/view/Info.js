@@ -34,15 +34,16 @@ Ext.define('Truespeed.view.Info', {
 "<p>&copy; moehlenhof.net, 2014. All rights reserved.</p>"
 				].join("")        
             }
-    	]
-    },
-    
-    listeners: {
-        painted: function() {
-        	var backButton = Ext.getCmp('backBtn');
-            backButton.hide();
-            var mapButton = Ext.getCmp('mapBtn');
-            mapButton.hide();
-        }
-    }   
+    	],
+    	
+    	listeners: {
+        	painted: function() {
+        		var backButton = Ext.getCmp('backBtn');
+            	backButton.hide();
+            	var mapButton = Ext.getCmp('mapBtn');
+            	mapButton.hide();
+        	}
+    	}   
+    }
+      
 });

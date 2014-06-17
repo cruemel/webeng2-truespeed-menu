@@ -763,8 +763,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Truespeed.view.Info": [],
   "Truespeed.view.Main": [],
   "Truespeed.view.Map": [],
-  "Truespeed.view.Settings": [],
-  "Truespeed.view.Start": [],
+  "Truespeed.view.Options": [],
   "Truespeed.view.Text": [],
   "Truespeed.view.Time": [],
   "Truespeed.view.Vehicle": [],
@@ -1746,11 +1745,8 @@ Ext.ClassManager.addNameAliasMappings({
   "Truespeed.view.Map": [
     "widget.mapView"
   ],
-  "Truespeed.view.Settings": [
-    "widget.settingsView"
-  ],
-  "Truespeed.view.Start": [
-    "widget.startView"
+  "Truespeed.view.Options": [
+    "widget.optionsView"
   ],
   "Truespeed.view.Text": [
     "widget.textView"
