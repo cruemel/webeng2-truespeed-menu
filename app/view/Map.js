@@ -1,5 +1,5 @@
 Ext.define('Truespeed.view.Map', {
-   	extend: 'Ext.Panel',
+   	extend: 'Ext.Container',
 	xtype: 'mapView',
     id: 'wayMap',
     
@@ -12,7 +12,7 @@ Ext.define('Truespeed.view.Map', {
     	 
     	layout: {
             type: 'vbox',
-            align: 'stretch'       
+            align: 'stretch'        
         },
         
         control: {
@@ -21,23 +21,34 @@ Ext.define('Truespeed.view.Map', {
             }
         },
         
-        items: [ 
+        scrollable: true,
+        
+        items: [
+        	/*
+        	{
+                xtype: 'button',
+                id: 'mapInfo',
+                iconCls: 'info',
+                align: 'right'
+            }, 
+            */   
         	{
                 xtype: 'map',
                 id: 'mapBox',
-                flex: 3,
+            	flex: 4,
                 listeners: {
                 	maprender: function(comp, map) {
                 		var me = Ext.getCmp('wayMap');
                 		me.initMap(comp);
                 		me.paintMap(map);
+                		me.addControl(map);
         			}
             	}
             },
             {
             	xtype: 'formpanel',
                 id: 'routePanel',
-                flex: 3,
+                flex: 2,
             	items: [
         			{
                 		xtype: 'fieldset',
@@ -46,7 +57,6 @@ Ext.define('Truespeed.view.Map', {
                             labelWidth: '50%'
     					},
                         margin: '2%',
-                        instructions: '(To select a place, click in the fields above. To determinate its location, click on the map.)', 
                 		items: [
                     		{
                         		xtype: 'textfield',
@@ -92,7 +102,8 @@ Ext.define('Truespeed.view.Map', {
     
     initMap: function(comp) {
     	var mapOptions = {
-            center: new google.maps.LatLng(52.759900, 12.867736), // linum
+    		center: new google.maps.LatLng(52.51636711, 13.38031768), // berlin
+            // center: new google.maps.LatLng(52.759900, 12.867736), // linum
             zoom: 10,
             zoomControl: true,
             panControl: false,
@@ -102,9 +113,11 @@ Ext.define('Truespeed.view.Map', {
             mapTypeControl: false    
     	}
         comp.setMapOptions(mapOptions);
+		
     },
     
     paintMap: function(map) {
+   
     	var fieldset = Ext.getCmp('routeSet');
             			
         var green = new google.maps.MarkerImage(
@@ -120,7 +133,7 @@ Ext.define('Truespeed.view.Map', {
         	new google.maps.Point(0, 0),
             new google.maps.Point(16, 32)
         );
-
+         
   		var icon;
   		var title;
   		var location;
@@ -179,9 +192,57 @@ Ext.define('Truespeed.view.Map', {
   				markers = [];
 			}
 			
-		});
+		});	
+		
     },
     
+    addControl: function(map) {
+  		
+  		var helpControlDiv = document.createElement('div');
+  		var helpControl = new HelpControl(helpControlDiv, map);
+
+  		map.controls[google.maps.ControlPosition.TOP_RIGHT].push(helpControlDiv);
+		
+  		function HelpControl(controlDiv, map) {
+			
+  			controlDiv.style.padding = '1em';
+
+  			var controlUI = document.createElement('div');
+  			controlUI.style.backgroundColor = 'white';
+  			controlUI.style.borderStyle = 'solid';
+  			controlUI.style.borderWidth = '1px';
+  			controlUI.style.borderRadius = '0.3em';
+  			controlUI.style.borderColor = 'gray';
+  			controlUI.style.textAlign = 'center';
+  			controlUI.style.padding = '0.4em';
+  			controlUI.title = 'Click for more help';
+  			controlDiv.appendChild(controlUI);
+
+  			var controlText = document.createElement('div');
+  			controlText.style.fontSize = '1.2em';
+  			controlText.innerHTML = '<strong>Help</strong>';
+  			controlUI.appendChild(controlText);
+  			
+  			var contentString = '<div id="help">' +
+			'<div class="content">' +
+      		'<p>To choose a place, click in its formfield</p>' +
+      		'<p>and</p>'+
+      		'<p>to determinate its location, click on the map.</p>' +
+      		'</div>' +
+      		'</div>';
+
+  			var infowindow = new google.maps.InfoWindow({
+      			content: contentString,
+      			position: map.getCenter()
+  			});
+
+  			google.maps.event.addDomListener(controlUI, 'click', function() {
+    			infowindow.open(map);
+  			});
+  		}
+  		
+	},
+
     onDistanceTap: function() {
     	
     	var formPanel = Ext.getCmp('routePanel');
@@ -239,6 +300,7 @@ Ext.define('Truespeed.view.Map', {
             }
 		}
     }
+
     
     /*
     getDirections: function(map) {    

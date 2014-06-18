@@ -161,7 +161,7 @@ Ext.define('Truespeed.view.Chart', {
             	id: 'chart_caption',
             	flex: 1,
             	html: [
-					"<p>(Click on a bar, to see calculation details)</p>"
+					"<p>(Click on a bar, to see the calculation details)</p>"
 				].join(""),
 				style: {
 					color: 'gray',

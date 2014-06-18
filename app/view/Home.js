@@ -42,7 +42,7 @@ Ext.define('Truespeed.view.Home', {
             	id: 'vehile_caption',
             	flex: 1,
             	html: [
-					"<p>(Click on the vehicle, to see speed comparison)</p>"
+					"<p>(Click on the vehicle, to see a speed comparison)</p>"
 				].join(""),
 				style: {
 					color: 'gray',
