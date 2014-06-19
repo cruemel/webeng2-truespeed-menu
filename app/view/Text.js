@@ -6,8 +6,7 @@ Ext.define('Truespeed.view.Text', {
     config: {
     	
         layout: {
-            type: 'vbox',
-            align: 'stretch'   
+            type: 'card',   
         },
         
         styleHtmlContent: true,
@@ -17,7 +16,7 @@ Ext.define('Truespeed.view.Text', {
     		{
 				id: 'summary',
 				cls: 'textview',
-				html: "<p>Sorry, but still no data.</p>"        
+				html: "<p>Sorry, but no data.</p>"        
             } 
     	],
     	

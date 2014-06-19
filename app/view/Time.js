@@ -25,7 +25,7 @@ Ext.define('Truespeed.view.Time', {
                 		xtype: 'fieldset',
                 		margin: '0 2%',
                 		defaults: {
-                            labelWidth: '75%'
+                            labelWidth: '70%'
                         },
                 		items: [
                     		{
@@ -45,7 +45,7 @@ Ext.define('Truespeed.view.Time', {
                 		xtype: 'fieldset',
                 		margin: '2%',
                 		defaults: {
-                            labelWidth: '75%'
+                            labelWidth: '70%'
                         },
                         instructions: '(Privacy: there will be no data stored, eg. your data is lost, if you close the window.)',
                 		items: [

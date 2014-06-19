@@ -64,43 +64,31 @@ Ext.define('Truespeed.controller.Functions', {
 		var way = records.way;
 		var data = Truespeed.controller.Functions.compute(records,vehicle,way);
 		
-		// console.log("Distance: ", data.distance);
+		console.log("Distance: ", data.distance);
     	
     	var tpl = new Ext.XTemplate(
     		'<p>Mario ',
 			'<tpl if="this.isNOTPublic()">',	
-    		'uses the {transport} to get to work.</p>',
+    		'uses the {transport} ',
     		'<tpl else>',
-    		'uses a {transport} transport to get to work.</p>',
+    		'uses the {transport} transport ',
     		'</tpl>',
-			'<p>In one year he gives {currency} {upkeeping} for the vehicle.<br>',
-			'<tpl if="this.isCar()">',
-			"He also spends {currency} {spendings} on fuel.<br>",
-			'</tpl>',
-			'<tpl if="this.isNOTPublic()">',
-			"And don&apos;t forget the {transport} itself, which costs {currency} {costs} each year.<br>",
-			'</tpl>',
-			'Thus his total expenses are {currency} {vehicletotal}.</p>',
+    		'to get to work.</p>',
+    		'<p>In one year he gives <strong> {currency} {vehicletotal} </strong> for the vehicle.</p>',
 			'<p>But what does money has to do with the speed?<br>',
 			'Isn&apos;t it all about way and time?</p>',
-			'<p>Mario&apos;s way to the workplace is {waytotal} {distance} per year.<br>',
-			"For the time however, we have to take into consideration not only the {timeway} hours on driving,<br>",
-			"but also the time he has to work to afford the vehicle - {timework} hours.<br>", 
-			'In total, it is therefore {timetotal} hours.</p>',
-			'<tpl if="this.isNOTPublic()">',
-			'<p><strong>Taking the {transport}, ',
-			'<tpl else>',
-			'<p><strong>Taking the {transport} transport, ',
-			'</tpl>',
-			'Mario&apos;s velocity is:<br>',
-			'{waytotal} {distance} / {timetotal} h, ie. ',
+			'<p>His way to the workplace is <strong> {waytotal} {distance} </strong> per year.<br>',
+			'However, it is not only the time he spends on driving: <strong> {timeway} hours</strong>,<br>',
+			'but also the time he has to work to afford the vehicle: <strong> {timework} hours</strong>.<br>',
+			'In total, it is <strong> {timetotal} hours </strong>.</p>',
+			'<p>Mario&apos;s velocity is:<br>',
+			'<strong>{waytotal} {distance} / {timetotal} h, ie. ',
 			'<tpl if="this.isMiles()">',
 			'{speed} mph',
 			'<tpl else>',
 			'{speed} km/h',
 			'</tpl>',
 			'</strong></p>',
-			
 			{ 
 				isCar: function() {
 					var isCar = false;

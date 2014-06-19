@@ -11,8 +11,7 @@ Ext.define('Truespeed.view.Map', {
     config: {
     	 
     	layout: {
-            type: 'vbox',
-            align: 'stretch'        
+            type: 'vbox',       
         },
         
         control: {
@@ -21,21 +20,12 @@ Ext.define('Truespeed.view.Map', {
             }
         },
         
-        scrollable: true,
-        
         items: [
-        	/*
-        	{
-                xtype: 'button',
-                id: 'mapInfo',
-                iconCls: 'info',
-                align: 'right'
-            }, 
-            */   
         	{
                 xtype: 'map',
                 id: 'mapBox',
-            	flex: 4,
+            	width: '100%',
+				height: '70%', 
                 listeners: {
                 	maprender: function(comp, map) {
                 		var me = Ext.getCmp('wayMap');
@@ -48,7 +38,8 @@ Ext.define('Truespeed.view.Map', {
             {
             	xtype: 'formpanel',
                 id: 'routePanel',
-                flex: 2,
+               	width: '100%',
+				height: '30%', 
             	items: [
         			{
                 		xtype: 'fieldset',
