@@ -105,7 +105,7 @@ Ext.define('Truespeed.view.Main', {
                 }
             },
             {
-                text: 'Info',
+                text: 'About',
                 iconCls: 'info',
                 scope: this,
                 handler: function() {

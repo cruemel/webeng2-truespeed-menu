@@ -32,7 +32,8 @@ Ext.define('Truespeed.view.Data', {
             			id: 'inputBtn',
             			// pressedCls: 'inputSelected',
             			 items: [
-            			 	 {
+            			 	/* 
+            			 	{
                                	iconCls: 'help',
                                	width: 60,
                                	pressed: true,
@@ -41,6 +42,7 @@ Ext.define('Truespeed.view.Data', {
             						mainScreen.setActiveItem(Ext.getCmp('helpScreen'));
                                 }
                             },
+                            */
             			 	{
                                 text: 'Vehicle',
                                 width: 90,
