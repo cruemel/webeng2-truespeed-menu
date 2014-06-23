@@ -10,8 +10,7 @@ Ext.define('Truespeed.view.Home', {
     config: {
     	
     	layout: {
-            type: 'vbox',
-            align: 'stretch'   
+            type: 'vbox'  
         },
         
         styleHtmlContent: true,
@@ -22,7 +21,7 @@ Ext.define('Truespeed.view.Home', {
             	id: 'tagline',
             	flex: 1,
             	cls: 'textview',
-            	html: '<p>Mario has a speed of ? km/h.</p>'
+            	html: '<p>Mario has a speed of ? km/h.</p>',
             },
             {
             	xtype: 'image',

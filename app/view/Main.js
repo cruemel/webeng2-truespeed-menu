@@ -25,8 +25,7 @@ Ext.define('Truespeed.view.Main', {
                 	 {
                         xtype: 'button',
                         id: 'backBtn',
-                        iconCls: 'arrow_left',
-                        hidden: true
+                        iconCls: 'arrow_left'
                     },
                     {
                         xtype: 'button',

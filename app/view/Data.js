@@ -9,7 +9,8 @@ Ext.define('Truespeed.view.Data', {
         'Ext.SegmentedButton',
         'Truespeed.view.Vehicle',
         'Truespeed.view.Way',
-        'Truespeed.view.Time'
+        'Truespeed.view.Time',
+        'Truespeed.view.Help'
     ],
 
 	config: {
@@ -29,14 +30,20 @@ Ext.define('Truespeed.view.Data', {
                     {
             			xtype: 'segmentedbutton',
             			id: 'inputBtn',
-            			defaults: {
-               	 			width: 80
-            			},
             			// pressedCls: 'inputSelected',
             			 items: [
+            			 	 {
+                               	iconCls: 'help',
+                               	width: 60,
+                               	pressed: true,
+                                handler: function () {
+                                	var mainScreen = Ext.getCmp('dataScreen');
+            						mainScreen.setActiveItem(Ext.getCmp('helpScreen'));
+                                }
+                            },
             			 	{
                                 text: 'Vehicle',
-                                pressed: true,
+                                width: 90,
                                 handler: function () {
                                 	var mainScreen = Ext.getCmp('dataScreen');
             						mainScreen.setActiveItem(Ext.getCmp('vehicleScreen'));
@@ -44,6 +51,7 @@ Ext.define('Truespeed.view.Data', {
                             },
                             {
                                 text: 'Way',
+                                width: 90,
                                 handler: function () {
                                 	var mainScreen = Ext.getCmp('dataScreen');
             						mainScreen.setActiveItem(Ext.getCmp('wayForm'));
@@ -51,14 +59,18 @@ Ext.define('Truespeed.view.Data', {
                             },
                             {
                                 text: 'Time',
+                                width: 90,
                                 handler: function () {
                                 	var mainScreen = Ext.getCmp('dataScreen');
             						mainScreen.setActiveItem(Ext.getCmp('timeScreen'));
                                 }
-                            }    
+                            }   
                         ]
             		}
     			]
+    		},
+    		{
+    			xtype: 'helpView'
     		},
     		{
     			xtype: 'vehicleView'

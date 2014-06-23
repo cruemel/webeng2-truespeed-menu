@@ -21,7 +21,7 @@ Ext.define('Truespeed.view.Vehicle', {
                 items: [
                 	{
                 		xtype: 'fieldset',
-                		margin: '0 2%',
+                		margin: '0 1%',
                 		defaults: {
                             labelWidth: '70%'
                         },
@@ -48,11 +48,10 @@ Ext.define('Truespeed.view.Vehicle', {
                     },
                     {
                     	xtype: 'fieldset',
-                		margin: '2%',
+                		margin: '3% 1%',
                 		defaults: {
                             labelWidth: '70%'
                         },
-                        instructions: '(Please enter your own values and compare them - at the chart. Parameters with a star need to have a value greater than 0)',
                 		items: [
                    			{
                         		xtype: 'numberfield',
@@ -128,7 +127,7 @@ Ext.define('Truespeed.view.Vehicle', {
                 		xtype: 'button',
                 		id: 'vehicleBtn',
                 		text: 'Save',
-                		margin: '0 25%',
+                		margin: '2% 25%',
                 		ui: 'confirm'
             		}     		
             	]

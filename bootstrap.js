@@ -759,6 +759,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Truespeed.store.Ways": [],
   "Truespeed.view.Chart": [],
   "Truespeed.view.Data": [],
+  "Truespeed.view.Help": [],
   "Truespeed.view.Home": [],
   "Truespeed.view.Info": [],
   "Truespeed.view.Main": [],
@@ -1732,6 +1733,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Truespeed.view.Data": [
     "widget.dataView"
+  ],
+  "Truespeed.view.Help": [
+    "widget.helpView"
   ],
   "Truespeed.view.Home": [
     "widget.homeView"

@@ -24,7 +24,7 @@ Ext.define('Truespeed.view.Way', {
                 items: [
                 	{
                 		xtype: 'fieldset',
-                		margin: '0 2%',
+                		margin: '0 1%',
                 		defaults: {
                             labelWidth: '70%'
                         },
@@ -44,11 +44,10 @@ Ext.define('Truespeed.view.Way', {
                     },
         			{
                 		xtype: 'fieldset',
-                		margin: '2%',
+                		margin: '3% 1%',
                 		defaults: {
                             labelWidth: '70%'
-                        },
-                        instructions: '(To keep things simple, this app assumes, that the distance for the different vehicles is all the same, but not the time. You can get the distance on the map - left above.)',   
+                        },  
                 		items: [
                     		{
                         		xtype: 'numberfield',
@@ -78,7 +77,7 @@ Ext.define('Truespeed.view.Way', {
                 		xtype: 'button',
                 		id: 'wayBtn',
                 		text: 'Save',
-                		margin: '0 25%',
+                		margin: '2% 25%',
                 		ui: 'confirm'
             		}     	
             	]

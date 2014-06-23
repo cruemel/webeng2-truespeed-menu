@@ -64,7 +64,7 @@ Ext.define('Truespeed.controller.Functions', {
 		var way = records.way;
 		var data = Truespeed.controller.Functions.compute(records,vehicle,way);
 		
-		console.log("Distance: ", data.distance);
+		// console.log("Distance: ", data.distance);
     	
     	var tpl = new Ext.XTemplate(
     		'<p>Mario ',

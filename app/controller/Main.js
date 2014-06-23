@@ -10,6 +10,9 @@ Ext.define('Truespeed.controller.Main', {
         	'#changeBtn': {
                 tap: 'onChangeTap'
             },
+            '#nextBtn': {
+                tap: 'onNextTap'
+            },
         	'#mapBtn': {
                 tap: 'onMapTap'
             },
@@ -69,6 +72,13 @@ Ext.define('Truespeed.controller.Main', {
         else {
         	mainScreen.setActiveItem(Ext.getCmp('wayMap'));
         }
+    },
+    
+    onNextTap: function() {
+    	var buttons = Ext.getCmp('inputBtn');
+        buttons.setPressedButtons(1);
+       	var mainScreen = Ext.getCmp('dataScreen');
+    	mainScreen.setActiveItem(Ext.getCmp('vehicleScreen'));
     },
 
     onTimeTap: function() {

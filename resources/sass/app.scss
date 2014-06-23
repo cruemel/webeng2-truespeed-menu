@@ -13,7 +13,7 @@ $font-family: Andale Mono, monospace;
 $page-bg-color: #f2eee3;
 $form-bg-color: $page-bg-color;
 
-$toolbar-spacing: 2em;
+$toolbar-spacing: 1em;
 
 @import 'sencha-touch/default/';
 @import 'sencha-touch/default/all';
@@ -42,6 +42,7 @@ $toolbar-spacing: 2em;
 @include icon('chart','Y');
 @include icon('data','b');
 @include icon('info','i');
+@include icon('help','?');
 
 // xtypes
 
@@ -55,13 +56,9 @@ $toolbar-spacing: 2em;
 	}
 }
 
-.x-tabbar {
-    border-width: 0 !important;
-    height: 20px;
-	.x-tab-active {
-		.x-button-icon {
-			color: #993333;
-		}
+.x-button-label {
+	font: {
+        size: 1em;
 	}
 }
 
@@ -77,12 +74,12 @@ $toolbar-spacing: 2em;
 
 .textview {
     font: {
-        size: 1.4em;
+        size: 1.2em;
     }
     color: #000000;
     line-height: 1.2em;
     letter-spacing: -1px;
-    padding: 0.8em;
+    padding: 0.5em;
 }
 
 .gray .x-input-text {
@@ -95,11 +92,5 @@ $toolbar-spacing: 2em;
 
 .work .x-input-text {
 	color: #CC6633;
-}
-
-.logo {
-    background: url('../images/logo.png')  no-repeat center;
-    width: 107px; 
-    height: 32px;
 }
 

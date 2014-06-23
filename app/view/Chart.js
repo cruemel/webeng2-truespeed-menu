@@ -19,8 +19,7 @@ Ext.define('Truespeed.view.Chart', {
     	title: 'Chart',
     	
         layout: {
-            type: 'vbox',
-            align: 'stretch'   
+            type: 'vbox'
         },
         
         styleHtmlContent: true,
@@ -30,7 +29,8 @@ Ext.define('Truespeed.view.Chart', {
             {
             	xtype: 'chart',
             	id: "barChart",
-            	flex: 5,
+            	width: '100%',
+            	flex: 6,
             	
                	store: 'Chart',
                 
@@ -63,7 +63,7 @@ Ext.define('Truespeed.view.Chart', {
                             field: 'speed',
                             display: 'insideStart',
                             color: 'black',
-                            fontSize: '1.2em',
+                            fontSize: '1em',
                             fontFamily: 'Andale Mono, monospace',
                             renderer: function (text) {
                             	var records = Truespeed.controller.Functions.getUnits();
@@ -159,6 +159,7 @@ Ext.define('Truespeed.view.Chart', {
                 
             {
             	id: 'chart_caption',
+            	width: '100%',
             	flex: 1,
             	html: [
 					"<p>(Click on a bar, to see the calculation details)</p>"
