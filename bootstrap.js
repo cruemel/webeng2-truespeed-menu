@@ -765,6 +765,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Truespeed.view.Main": [],
   "Truespeed.view.Map": [],
   "Truespeed.view.Options": [],
+  "Truespeed.view.Overlay": [],
   "Truespeed.view.Text": [],
   "Truespeed.view.Time": [],
   "Truespeed.view.Vehicle": [],
@@ -1751,6 +1752,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Truespeed.view.Options": [
     "widget.optionsView"
+  ],
+  "Truespeed.view.Overlay": [
+    "widget.main"
   ],
   "Truespeed.view.Text": [
     "widget.textView"

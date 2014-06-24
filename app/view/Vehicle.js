@@ -141,9 +141,12 @@ Ext.define('Truespeed.view.Vehicle', {
             	backButton.hide();
             	var mapButton = Ext.getCmp('mapBtn');
             	mapButton.hide();
-        	}
-        }
-    }
-    
+        	
+        		var overlay = Ext.create('Truespeed.view.Overlay');
+        		Ext.Viewport.add(overlay);
+            	overlay.show();
+            }
+    	}
+    }   
     
 });

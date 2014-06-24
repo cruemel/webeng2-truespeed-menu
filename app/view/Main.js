@@ -60,6 +60,11 @@ Ext.define('Truespeed.view.Main', {
              {
                 xtype: 'dataView'
             },
+            /*
+             {
+                xtype: 'helpView',
+            },
+            */
              {
                 xtype: 'infoView'
             },
@@ -104,6 +109,17 @@ Ext.define('Truespeed.view.Main', {
                     mainScreen.setActiveItem(Ext.getCmp('dataScreen'));
                 }
             },
+            /*
+            {
+                text: 'Help',
+                iconCls: 'help',
+                scope: this,
+                handler: function() {
+                    Ext.Viewport.hideMenu(side);
+                    mainScreen.setActiveItem(Ext.getCmp('helpScreen'));
+                }
+            },
+            */
             {
                 text: 'About',
                 iconCls: 'info',

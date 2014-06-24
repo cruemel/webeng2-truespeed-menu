@@ -74,13 +74,6 @@ Ext.define('Truespeed.controller.Main', {
         }
     },
     
-    onNextTap: function() {
-    	var buttons = Ext.getCmp('inputBtn');
-        buttons.setPressedButtons(1);
-       	var mainScreen = Ext.getCmp('dataScreen');
-    	mainScreen.setActiveItem(Ext.getCmp('vehicleScreen'));
-    },
-
     onTimeTap: function() {
     	var form = Ext.getCmp('timePanel');
     	

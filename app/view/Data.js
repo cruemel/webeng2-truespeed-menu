@@ -7,6 +7,7 @@ Ext.define('Truespeed.view.Data', {
         'Ext.TitleBar',
         'Ext.Button',
         'Ext.SegmentedButton',
+        'Ext.Panel',
         'Truespeed.view.Vehicle',
         'Truespeed.view.Way',
         'Truespeed.view.Time',
@@ -20,6 +21,7 @@ Ext.define('Truespeed.view.Data', {
         items: [
         	{
         		xtype: 'toolbar',
+        		id: 'databar',
                 docked: 'top',
                 style: {
     				background: '#f2eee3',
@@ -32,20 +34,10 @@ Ext.define('Truespeed.view.Data', {
             			id: 'inputBtn',
             			// pressedCls: 'inputSelected',
             			 items: [
-            			 	/* 
             			 	{
-                               	iconCls: 'help',
-                               	width: 60,
-                               	pressed: true,
-                                handler: function () {
-                                	var mainScreen = Ext.getCmp('dataScreen');
-            						mainScreen.setActiveItem(Ext.getCmp('helpScreen'));
-                                }
-                            },
-                            */
-            			 	{
-                                text: 'Vehicle',
-                                width: 90,
+                                text: 'Costs',
+                                width: 100,
+                                pressed: true,
                                 handler: function () {
                                 	var mainScreen = Ext.getCmp('dataScreen');
             						mainScreen.setActiveItem(Ext.getCmp('vehicleScreen'));
@@ -53,7 +45,7 @@ Ext.define('Truespeed.view.Data', {
                             },
                             {
                                 text: 'Way',
-                                width: 90,
+                                width: 100,
                                 handler: function () {
                                 	var mainScreen = Ext.getCmp('dataScreen');
             						mainScreen.setActiveItem(Ext.getCmp('wayForm'));
@@ -61,7 +53,7 @@ Ext.define('Truespeed.view.Data', {
                             },
                             {
                                 text: 'Time',
-                                width: 90,
+                                width: 100,
                                 handler: function () {
                                 	var mainScreen = Ext.getCmp('dataScreen');
             						mainScreen.setActiveItem(Ext.getCmp('timeScreen'));
@@ -70,9 +62,6 @@ Ext.define('Truespeed.view.Data', {
                         ]
             		}
     			]
-    		},
-    		{
-    			xtype: 'helpView'
     		},
     		{
     			xtype: 'vehicleView'
@@ -84,6 +73,7 @@ Ext.define('Truespeed.view.Data', {
     			xtype: 'timeView'
     		}
     	]
+   		
    	}
 });
 
