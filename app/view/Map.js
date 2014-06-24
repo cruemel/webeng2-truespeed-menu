@@ -94,7 +94,6 @@ Ext.define('Truespeed.view.Map', {
     initMap: function(comp) {
     	var mapOptions = {
     		center: new google.maps.LatLng(52.51636711, 13.38031768), // berlin
-            // center: new google.maps.LatLng(52.759900, 12.867736), // linum
             zoom: 10,
             zoomControl: true,
             panControl: false,
@@ -240,7 +239,7 @@ Ext.define('Truespeed.view.Map', {
     	
     	formPanel.setMasked({
             xtype: 'loadmask',
-             indicator: true,
+            indicator: true,
             message: 'calculating ...'
         });
         
@@ -271,10 +270,11 @@ Ext.define('Truespeed.view.Map', {
 			var element;
   			if (status == google.maps.DistanceMatrixStatus.OK) {
   				results = response.rows[0].elements;
+  				console.log(results);
     			for (var i = 0; i < results.length; i++) {
         			element = results[i];
         			distance = (element.distance.value / 1000).toFixed(1);
-        			duration = parseInt(element.duration.value / 60);
+        			duration = Math.ceil(element.duration.value / 60);
     			}
     			
     			var userStore = Ext.getStore('Users');

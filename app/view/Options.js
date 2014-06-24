@@ -28,7 +28,7 @@ Ext.define('Truespeed.view.Options', {
                     labelWidth: '50%'
                 },
                 margin: '2%',
-                instructions: 'In case you are not living in "the old europe" ...',
+                // instructions: 'In case you are not living in "the old europe" ...',
     			
                 items: [
                     {
