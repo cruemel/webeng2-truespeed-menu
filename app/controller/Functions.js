@@ -31,11 +31,20 @@ Ext.define('Truespeed.controller.Functions', {
 		else {
 			unit = "km/h";
 		}
+		
+		var person;
+		
+		if (data.name == 'Mario') {
+			person = 'Mario has';
+		}
+		else {
+			person = 'You have';
+		}
     	
-    	var speedline = '<p>Mario has a speed of ' + velocity + ' ' + unit + '.</p>';
+    	var tagline = '<p>' + person + ' a speed of ' + velocity + ' ' + unit + '.</p>';
 		
 		var panel = Ext.getCmp("tagline");
-		panel.setHtml(speedline);
+		panel.setHtml(tagline);
 	},
 	
 	updateImage: function() {
@@ -65,21 +74,56 @@ Ext.define('Truespeed.controller.Functions', {
 		var data = Truespeed.controller.Functions.compute(records,vehicle,way);
     	
     	var tpl = new Ext.XTemplate(
-    		'<p>Mario ',
-			'<tpl if="this.isNOTPublic()">',	
-    		'uses the {transport} ',
+    		'<p>',
+    		'<tpl if="this.isMario()">',
+    		'Mario uses ',
     		'<tpl else>',
-    		'uses the {transport} transport ',
+    		'You use ',
+    		'</tpl>',
+			'<tpl if="this.isNOTPublic()">',	
+    		'the {transport} ',
+    		'<tpl else>',
+    		'the {transport} transport ',
     		'</tpl>',
     		'to get to work.</p>',
-    		'<p>In one year he gives <strong> {currency} {vehicletotal} </strong> for the vehicle.</p>',
+    		'<p>In one year ',
+    		'<tpl if="this.isMario()">',
+    		'he gives ',
+    		'<tpl else>',
+    		'you give ',
+    		'</tpl>',
+    		'<strong> {currency} {vehicletotal} </strong> for the vehicle.</p>',
 			'<p>But what does money has to do with the speed?<br>',
 			'Isn&apos;t it all about way and time?</p>',
-			'<p>His way to the workplace is <strong> {waytotal} {distance} </strong> per year.<br>',
-			'However, it is not only the time he spends on driving: <strong> {timeway} hours</strong>,<br>',
-			'but also the time he has to work to afford the vehicle: <strong> {timework} hours</strong>.<br>',
+			'<p>',
+			'<tpl if="this.isMario()">',
+    		'His ',
+    		'<tpl else>',
+    		'Your ',
+    		'</tpl>',
+			'way to the workplace is <strong> {waytotal} {distance} </strong> per year.<br>',
+			'However, it is not only the time ',
+			'<tpl if="this.isMario()">',
+    		'he spends ',
+    		'<tpl else>',
+    		'you spend ',
+    		'</tpl>', 
+			'on driving: <strong> {timeway} hours</strong>,<br>',
+			'but also the time ',
+			'<tpl if="this.isMario()">',
+    		'he has ',
+    		'<tpl else>',
+    		'you have ',
+    		'</tpl>',  
+			'to work to afford the vehicle: <strong> {timework} hours</strong>.<br>',
 			'In total, it is <strong> {timetotal} hours </strong>.</p>',
-			'<p>Mario&apos;s velocity is:<br>',
+			'<p>',
+			'<tpl if="this.isMario()">',
+    		'Mario&apos;s ',
+    		'<tpl else>',
+    		'Your ',
+    		'</tpl>',  
+			'velocity is:<br>',
 			'<strong>{waytotal} {distance} / {timetotal} h, ie. ',
 			'<tpl if="this.isMiles()">',
 			'{speed} mph',
@@ -88,12 +132,12 @@ Ext.define('Truespeed.controller.Functions', {
 			'</tpl>',
 			'</strong></p>',
 			{ 
-				isCar: function() {
-					var isCar = false;
-					if (data.spendings > 0) {
-						isCar = true;
+				isMario: function() {
+					var isMario = false;
+					if (data.name == "Mario") {
+						isMario = true;
 					}
-					return isCar;
+					return isMario;
 				},
 				isNOTPublic: function() {
 					var isNOTPublic = false;
@@ -181,6 +225,7 @@ Ext.define('Truespeed.controller.Functions', {
 		var speed = parseFloat((waytotal / timetotal).toFixed(2)); 
 		
 		var values = {
+			name: records.name,
   			transport: record.name,
   			costs: costs,
   			spendings: spendings,
@@ -195,6 +240,8 @@ Ext.define('Truespeed.controller.Functions', {
 			capacity: units.capacity,
 			currency: units.currency		
   		};
+  		
+  		console.log(values);
   		
   		Truespeed.controller.Functions.setChart(vehicle,values);
         
@@ -330,6 +377,7 @@ Ext.define('Truespeed.controller.Functions', {
 		var chartStore = Ext.getStore('Chart');
 		
 		if (chartStore.getData().length > 0) {
+			chartStore.getData().get(record).set('transport',values.name);
         	chartStore.getData().get(record).set('transport',values.transport);
   			chartStore.getData().get(record).set('costs',values.costs);
   			chartStore.getData().get(record).set('spendings',values.spendings);
@@ -400,11 +448,6 @@ Ext.define('Truespeed.controller.Functions', {
 		timeStore.getData().get(record).set('days',values.days);
 		timeStore.getData().get(record).set('hours',values.hours);
 		timeStore.getData().get(record).set('salary',values.salary);
-	},
-	
-	setUser: function(value) {
-		var userStore = Ext.getStore('Users');
-		userStore.getData().get(0).set("name",value);
 	},
     
     setTransport: function(name) {
@@ -545,7 +588,7 @@ Ext.define('Truespeed.controller.Functions', {
     		vehicle = values.name;
     	}
        	
-       	var record = Truespeed.controller.Functions.getRecord(vehicle);
+       	var record = Truespeed.controller.Functions.getNumber(vehicle);
                     		
         Truespeed.controller.Functions.setVehicle(record,values);
     },
@@ -559,7 +602,7 @@ Ext.define('Truespeed.controller.Functions', {
     		vehicle = values.name;
     	}
         
-        var record = Truespeed.controller.Functions.getRecord(vehicle);
+        var record = Truespeed.controller.Functions.getNumber(vehicle);
                     		
         Truespeed.controller.Functions.setWay(record,values);
     },

@@ -74,17 +74,47 @@ Ext.define('Truespeed.controller.Main', {
         }
     },
     
-    onTimeTap: function() {
-    	var form = Ext.getCmp('timePanel');
+    onVehicleTap: function() {
     	
-    	form.setMasked({
-            xtype: 'loadmask',
-            message: 'saving ...'
-        });
+		 setTimeout(function() {
+        	Truespeed.controller.Functions.saveVehicle();
+        }, 300);
         
+        var mario = Truespeed.controller.Functions.getTables();
+        
+        var you = {
+			name: 'You',
+    		vehicle: mario.vehicle,
+    		way: mario.way,
+    		time: mario.time
+		}
+		
+		Truespeed.controller.Functions.setTables(you);
+		
+		var buttons = Ext.getCmp('inputBtn');
+        buttons.setPressedButtons(1);
+        
+        var mainScreen = Ext.getCmp('dataScreen');
+        mainScreen.setActiveItem(Ext.getCmp('wayForm'));
+    },
+    
+    onWayTap: function() {
+        
+		 setTimeout(function() {
+        	Truespeed.controller.Functions.saveWay();
+        }, 300);
+        
+        var buttons = Ext.getCmp('inputBtn');
+        buttons.setPressedButtons(2);
+        
+        var mainScreen = Ext.getCmp('dataScreen');
+    	mainScreen.setActiveItem(Ext.getCmp('timeScreen'));
+    },
+    
+     onTimeTap: function() {
+    	
         setTimeout(function() {
         	Truespeed.controller.Functions.saveTime();
-		 	form.setMasked(false);
         }, 300);
         
         var mainScreen = Ext.getCmp('mainScreen');
@@ -93,50 +123,6 @@ Ext.define('Truespeed.controller.Main', {
     	var mapButton = Ext.getCmp('mapBtn');
         mapButton.hide();
 		
-    },
-    
-    onVehicleTap: function() {
-    	var form = Ext.getCmp('vehiclePanel');
-    	
-    	form.setMasked({
-            xtype: 'loadmask',
-             indicator: true,
-            message: 'please enter your way ...'
-        });
-        
-		 setTimeout(function() {
-        	Truespeed.controller.Functions.saveVehicle();
-		 	form.setMasked(false);
-        }, 300);
-        
-        var buttons = Ext.getCmp('inputBtn');
-        buttons.setPressedButtons(1);
-        
-        var mainScreen = Ext.getCmp('dataScreen');
-        mainScreen.setActiveItem(Ext.getCmp('wayForm'));
-        
-        Truespeed.controller.Functions.setUser("You");
-    },
-    
-    onWayTap: function() {
-    	var form = Ext.getCmp('wayPanel');
-    	
-    	form.setMasked({
-            xtype: 'loadmask',
-             indicator: true,
-            message: 'please enter your time ...'
-        });
-        
-		 setTimeout(function() {
-        	Truespeed.controller.Functions.saveWay();
-		 	form.setMasked(false);
-        }, 300);
-        
-        var buttons = Ext.getCmp('inputBtn');
-        buttons.setPressedButtons(2);
-        
-        var mainScreen = Ext.getCmp('dataScreen');
-    	mainScreen.setActiveItem(Ext.getCmp('timeScreen'));
     }
 
 });
