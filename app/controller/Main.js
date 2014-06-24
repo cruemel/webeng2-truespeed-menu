@@ -114,6 +114,8 @@ Ext.define('Truespeed.controller.Main', {
         
         var mainScreen = Ext.getCmp('dataScreen');
         mainScreen.setActiveItem(Ext.getCmp('wayForm'));
+        
+        Truespeed.controller.Functions.setUser("You");
     },
     
     onWayTap: function() {

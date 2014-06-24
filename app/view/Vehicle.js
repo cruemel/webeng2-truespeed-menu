@@ -6,7 +6,8 @@ Ext.define('Truespeed.view.Vehicle', {
     requires: [
         'Ext.form.FieldSet',
         'Ext.field.Number',
-        'Ext.field.Select'
+        'Ext.field.Select',
+        'Truespeed.view.Overlay'
     ],
     
     config: {
@@ -38,7 +39,7 @@ Ext.define('Truespeed.view.Vehicle', {
                         		listeners: {
                         			change: function (field, newValue) {
                         				setTimeout(function() {
-                        					Truespeed.controller.Functions.setRecord('vehicle',newValue);
+                        					Truespeed.controller.Functions.setTransport(newValue);
 											Truespeed.controller.Functions.updateVehicle();
 										 }, 300);
                         			}		
@@ -142,9 +143,12 @@ Ext.define('Truespeed.view.Vehicle', {
             	var mapButton = Ext.getCmp('mapBtn');
             	mapButton.hide();
         	
-        		var overlay = Ext.create('Truespeed.view.Overlay');
-        		Ext.Viewport.add(overlay);
-            	overlay.show();
+        		var users = Truespeed.controller.Functions.getTables();
+        		if (users.name != "You") {
+        			var overlay = Ext.create('Truespeed.view.Overlay');
+        			Ext.Viewport.add(overlay);
+            		overlay.show();
+            	}
             }
     	}
     }   

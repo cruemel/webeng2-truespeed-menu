@@ -46,13 +46,13 @@ Ext.define('Truespeed.view.Main', {
                 ]
             },
             {
-                xtype: 'homeView',
+                xtype: 'homeView'
             },
              {
-                xtype: 'chartView',
+                xtype: 'chartView'
             },
             {
-                xtype: 'textView',
+                xtype: 'textView'
             },
              {
                 xtype: 'optionsView'
@@ -62,7 +62,7 @@ Ext.define('Truespeed.view.Main', {
             },
             /*
              {
-                xtype: 'helpView',
+                xtype: 'helpView'
             },
             */
              {

@@ -63,8 +63,6 @@ Ext.define('Truespeed.controller.Functions', {
 		var vehicle = records.vehicle;
 		var way = records.way;
 		var data = Truespeed.controller.Functions.compute(records,vehicle,way);
-		
-		// console.log("Distance: ", data.distance);
     	
     	var tpl = new Ext.XTemplate(
     		'<p>Mario ',
@@ -127,8 +125,6 @@ Ext.define('Truespeed.controller.Functions', {
 		var transport = Truespeed.controller.Functions.compute(records,3,way);
 		var bike = Truespeed.controller.Functions.compute(records,2,way);
 		var car = Truespeed.controller.Functions.compute(records,1,way);
-		
-		// console.log('transport: ', transport);
 	
 	},
 	
@@ -148,7 +144,7 @@ Ext.define('Truespeed.controller.Functions', {
 		var record = Truespeed.controller.Functions.getValues(records,compare);
 		var units = Truespeed.controller.Functions.getUnits();
 		
-		// console.log('tables: ',  records.name, ', ', records.way, ', ',  records.vehicle, ', ', records.time );	
+		console.log('tables: ',  records.name, ',  ',  records.vehicle, ', ', records.way, ', ', records.time );	
 		// console.log('units: ',  units.capacity, ', ', units.currency, ', ',  units.distance );	
 		
 		/* meter zu kilometer (zu meilen) */
@@ -312,8 +308,6 @@ Ext.define('Truespeed.controller.Functions', {
 		
 		userStore.add(userModel.getData());
         userStore.sync();
-        
-        // console.log("tables set.");
 	},
 	
 	setUnits: function(values) {
@@ -330,8 +324,6 @@ Ext.define('Truespeed.controller.Functions', {
 		
 		unitStore.add(unitModel.getData());
         unitStore.sync();
-		
-		// console.log("units set.");
 	},
 	
 	setChart: function(record,values) {
@@ -409,6 +401,31 @@ Ext.define('Truespeed.controller.Functions', {
 		timeStore.getData().get(record).set('hours',values.hours);
 		timeStore.getData().get(record).set('salary',values.salary);
 	},
+	
+	setUser: function(value) {
+		var userStore = Ext.getStore('Users');
+		userStore.getData().get(0).set("name",value);
+	},
+    
+    setTransport: function(name) {
+    	var number = Truespeed.controller.Functions.getNumber(name);
+    	var store = Ext.data.StoreManager.get('Users');
+		store.getData().get(0).set('vehicle',number);
+    },
+    
+     getNumber: function(vehicle) {
+    	var record;
+        if (vehicle == "car") {
+            record = 1;
+        }
+        else if (vehicle == "bike") {
+            record = 2;
+        }
+        else {
+            record = 3;
+        }
+        return record;
+    },
 	
 	updateVehicle: function() {
 	
@@ -563,26 +580,6 @@ Ext.define('Truespeed.controller.Functions', {
     	var values = formPanel.getValues();
                     		
         Truespeed.controller.Functions.setUnits(values);
-    },
-     
-    getRecord: function(vehicle) {
-    	var record;
-        if (vehicle == "car") {
-            record = 1;
-        }
-        else if (vehicle == "bike") {
-            record = 2;
-        }
-        else {
-            record = 3;
-        }
-        return record;
-    },
-    
-    setRecord: function(key,name) {
-    	var number = Truespeed.controller.Functions.getRecord(name);
-    	var records = Ext.data.StoreManager.get('Users');
-		records.getData().get(0).set(key,number);
     }
     
     /* 
