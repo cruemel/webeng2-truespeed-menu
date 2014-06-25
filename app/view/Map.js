@@ -11,7 +11,7 @@ Ext.define('Truespeed.view.Map', {
     config: {
     	 
     	layout: {
-            type: 'vbox',       
+            type: 'vbox'      
         },
         
         control: {

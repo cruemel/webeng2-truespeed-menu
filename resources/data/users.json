@@ -9,12 +9,12 @@
     "name" : "Daisy",
     "vehicle" : 2,
     "way" : 2,
-    "time" : 2
+    "time" : 1
   },
   {
     "name" : "You",
     "vehicle" : 3,
     "way" : 3,
-    "time" : 3
+    "time" : 1
   }
 ]

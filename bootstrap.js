@@ -1754,7 +1754,7 @@ Ext.ClassManager.addNameAliasMappings({
     "widget.optionsView"
   ],
   "Truespeed.view.Overlay": [
-    "widget.main"
+    "widget.overlay"
   ],
   "Truespeed.view.Text": [
     "widget.textView"

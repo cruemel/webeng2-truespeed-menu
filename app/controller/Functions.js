@@ -191,7 +191,6 @@ Ext.define('Truespeed.controller.Functions', {
 		console.log('tables: ',  records.name, ',  ',  records.vehicle, ', ', records.way, ', ', records.time );	
 		// console.log('units: ',  units.capacity, ', ', units.currency, ', ',  units.distance );	
 		
-		/* meter zu kilometer (zu meilen) */
 		if (units.distance == 'mi') {
 			record.route = record.route / 1.609344;
         	record.consumption = record.consumption * 1.609344;
@@ -241,7 +240,7 @@ Ext.define('Truespeed.controller.Functions', {
 			currency: units.currency		
   		};
   		
-  		console.log(values);
+  		// console.log(values);
   		
   		Truespeed.controller.Functions.setChart(vehicle,values);
         
@@ -402,12 +401,6 @@ Ext.define('Truespeed.controller.Functions', {
         	values.consumption = values.consumption / 1.609344;
 		}
 		
-		/*
-		if (units.capacity == 'gal') {
-        	values.consumption = values.consumption * 3.785411784;
-		}
-		*/
-		
 		values.consumption = values.consumption.toFixed(1);	
 		values.fuel = values.fuel.toFixed(1);
 		
@@ -482,12 +475,6 @@ Ext.define('Truespeed.controller.Functions', {
 		if (data.distance == 'mi') {
         	values.consumption = values.consumption * 1.609344;
 		}
-		
-		/*
-		if (data.capacity == 'gal') {
-        	values.consumption = values.consumption / 3.785411784;
-		}
-		*/
 		
 		values.consumption = values.consumption.toFixed(1);	
 		values.fuel = values.fuel.toFixed(1);

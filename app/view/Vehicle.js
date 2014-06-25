@@ -146,8 +146,9 @@ Ext.define('Truespeed.view.Vehicle', {
         		var users = Truespeed.controller.Functions.getTables();
         		if (users.name != "You") {
         			var overlay = Ext.create('Truespeed.view.Overlay');
-        			Ext.Viewport.add(overlay);
-            		overlay.show();
+            		Ext.Viewport.setMasked({});
+            		Ext.Viewport.add(overlay);
+            		overlay.show();		
             	}
             }
     	}

@@ -43,6 +43,7 @@ $toolbar-spacing: 1em;
 @include icon('data','b');
 @include icon('info','i');
 @include icon('help','?');
+@include icon('close','D');
 
 // xtypes
 
@@ -62,12 +63,12 @@ $toolbar-spacing: 1em;
 	}
 }
 
-.x-chart-watermark {
-	display: none;
-}
-
 .x-button.x-button-pressed {
 	color: #75A48B;
+}
+
+.x-chart-watermark {
+	display: none;
 }
 
 // cls
@@ -92,5 +93,15 @@ $toolbar-spacing: 1em;
 
 .work .x-input-text {
 	color: #CC6633;
+}
+
+// id {
+
+#closeBtn {
+	background-color: #ffffff;
+	border: 0;
+	.x-button-icon.close {
+		color: #dddddd;
+	}
 }
 
