@@ -51,7 +51,7 @@ Ext.define('Truespeed.controller.Functions', {
 	
 		var records = Truespeed.controller.Functions.getTables();
 		
-		var image = Ext.getCmp('image');
+		var image = Ext.getCmp('vehicleImg');
 		
         if (records.vehicle == 3) {
             image.setSrc('resources/images/public.png');

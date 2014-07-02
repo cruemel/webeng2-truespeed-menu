@@ -29,7 +29,7 @@ Ext.define('Truespeed.view.Chart', {
             {
             	xtype: 'chart',
             	id: "barChart",
-            	width: '100%',
+            	laylout: 'fit',
             	flex: 6,
             	
                	store: 'Chart',

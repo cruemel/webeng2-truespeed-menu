@@ -1,6 +1,6 @@
-Ext.define('Truespeed.view.Overlay', {
+Ext.define('Truespeed.view.DataHelp', {
     extend: 'Ext.Panel',
-    xtype: "overlay",
+    xtype: "DataHelp",
     
      requires: [
         'Ext.TitleBar',
@@ -26,7 +26,7 @@ Ext.define('Truespeed.view.Overlay', {
             	items: [
         			{
                 		xtype: 'button',
-                		id: 'closeBtn',
+                		id: 'closeData',
                 		iconCls: 'close',
                 		align: 'right'
             		}
@@ -40,10 +40,7 @@ Ext.define('Truespeed.view.Overlay', {
 					"<p>- Than alter its costs, the way and your time.</p>",
 					"<p>- Not all parameters need a value (ex. fuel price).",
 					"<p>- Only parameters with a star need to have a value greater than 0.</p>",
-					"<p>- Keep in mind, that the distance, will be the same for all vehicles, but not the time.</p>",
-					"<p>- To get the distance, you can also use a map.</p>",
-					"<p>- And don&apos;t forget to &quot;save&quot; your values ...</p>",
-					"<p>Privacy: actually there will be no data stored (on the server), eg. your data is lost, if you close the app."
+					"<p>Privacy: actually there will be no data stored (on the server), eg. your data is lost, if you close the app.</p>"
 				].join("") 
 			}
 		]

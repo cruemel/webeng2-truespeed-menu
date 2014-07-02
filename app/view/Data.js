@@ -10,8 +10,7 @@ Ext.define('Truespeed.view.Data', {
         'Ext.Panel',
         'Truespeed.view.Vehicle',
         'Truespeed.view.Way',
-        'Truespeed.view.Time',
-        'Truespeed.view.Help'
+        'Truespeed.view.Time'
     ],
 
 	config: {

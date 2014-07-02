@@ -7,7 +7,7 @@ Ext.define('Truespeed.view.Vehicle', {
         'Ext.form.FieldSet',
         'Ext.field.Number',
         'Ext.field.Select',
-        'Truespeed.view.Overlay'
+        'Truespeed.view.DataHelp'
     ],
     
     config: {
@@ -145,7 +145,7 @@ Ext.define('Truespeed.view.Vehicle', {
         	
         		var users = Truespeed.controller.Functions.getTables();
         		if (users.name != "You") {
-        			var overlay = Ext.create('Truespeed.view.Overlay');
+        			var overlay = Ext.create('Truespeed.view.DataHelp');
             		Ext.Viewport.setMasked({});
             		Ext.Viewport.add(overlay);
             		overlay.show();		

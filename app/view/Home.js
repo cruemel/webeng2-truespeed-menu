@@ -25,7 +25,7 @@ Ext.define('Truespeed.view.Home', {
             },
             {
             	xtype: 'image',
-            	id: 'image',
+            	id: 'vehicleImg',
             	flex: 6,
             	src: 'resources/images/car.png',
             	width: '100%',
@@ -38,7 +38,7 @@ Ext.define('Truespeed.view.Home', {
    				}
         	},
         	{
-            	id: 'vehile_caption',
+            	id: 'vehileCap',
             	flex: 1,
             	html: [
 					"<p>(Click on the vehicle, to see a speed comparison)</p>"

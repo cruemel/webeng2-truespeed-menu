@@ -93,6 +93,7 @@ Ext.define('Truespeed.view.Main', {
         var items = [
             {
                 text: 'Options',
+                id: 'optionsBtn',
                 iconCls: 'settings',
                 scope: this,
                 handler: function() {
@@ -102,6 +103,7 @@ Ext.define('Truespeed.view.Main', {
             },
              {
                 text: 'Data',
+                id: 'dataBtn',
                 iconCls: 'data',
                 scope: this,
                 handler: function() {
@@ -122,6 +124,7 @@ Ext.define('Truespeed.view.Main', {
             */
             {
                 text: 'About',
+                id: 'aboutBtn',
                 iconCls: 'info',
                 scope: this,
                 handler: function() {
@@ -131,6 +134,7 @@ Ext.define('Truespeed.view.Main', {
             },
             {
             	text: 'Home',
+            	id: 'homeBtn',
                 iconCls: 'home',
                 docked: 'bottom',
                 scope: this,

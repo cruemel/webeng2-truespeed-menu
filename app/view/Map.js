@@ -5,13 +5,14 @@ Ext.define('Truespeed.view.Map', {
     
     requires: [
         'Ext.Map',
-        'Ext.Button'
+        'Ext.Button',
+        'Truespeed.view.MapHelp'
     ],
 
     config: {
     	 
     	layout: {
-            type: 'vbox'      
+            type: 'card'      
         },
         
         control: {
@@ -22,71 +23,113 @@ Ext.define('Truespeed.view.Map', {
         
         items: [
         	{
-                xtype: 'map',
-                id: 'mapBox',
-            	width: '100%',
-				height: '70%', 
-                listeners: {
-                	maprender: function(comp, map) {
-                		var me = Ext.getCmp('wayMap');
-                		me.initMap(comp);
-                		me.paintMap(map);
-                		me.addControl(map);
-        			}
-            	}
+                xtype: 'titlebar',
+                top: 0,
+                right: 0,
+                zIndex: 100,
+                style: {
+                    background: 'none'
+                },
+                items: [
+                    {
+                        xtype: 'segmentedbutton',
+                        align: 'right',
+                        defaults: {
+                            width: 100
+                        },
+                        items: [
+                            {
+                                text: 'Help',
+                                id: 'helpBtn',
+                                pressed: false,
+                                handler: function () {
+                                    var overlay = Ext.create('Truespeed.view.MapHelp');
+            						Ext.Viewport.setMasked({});
+            						Ext.Viewport.add(overlay);
+            						overlay.show();	
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
             {
-            	xtype: 'formpanel',
-                id: 'routePanel',
-               	width: '100%',
-				height: '30%', 
-            	items: [
+                xtype: 'container',
+                layout: {
+            		type: 'vbox'      
+        		},
+                items: [
         			{
-                		xtype: 'fieldset',
-                		id: 'routeSet',
-                		defaults: {
-                            labelWidth: '50%'
-    					},
-                        margin: '2%',
-                		items: [
-                    		{
-                        		xtype: 'textfield',
-                        		cls: 'gray',
-                        		label: 'Apartment',
-                        		name: 'home',
-                        		value: 'Latitude, Longitude',
-                        		required: true,
-                        		listeners: {
-                        			focus: function (field,event,options) {
-                        				var fieldset = Ext.getCmp('routeSet');
-                        				fieldset.setActiveItem(field);
-                        			}
-                        		}
-                    		},	
-                   			{
-                        		xtype: 'textfield',
-                        		cls: 'gray',
-                        		label: 'Workplace',
-                        		name: 'work',
-                        		value: 'Latitude, Longitude',
-                        		required: true,
-                        		listeners: {
-                        			focus: function (field,event,options) {
-                        				var fieldset = Ext.getCmp('routeSet');
-                        				fieldset.setActiveItem(field);		
-                        			}
-                        		}
-                    		}
-                		]
+                		xtype: 'map',
+                		id: 'mapBox',
+                		width: '100%',
+                		height: '66%',
+                		listeners: {
+                			maprender: function(comp, map) {
+                				var me = Ext.getCmp('wayMap');
+                				me.initMap(comp);
+                				me.paintMap(map);
+                				// me.addControl(map);
+        					}
+            			}
             		},
-            		{
-                		xtype: 'button',
-                		id: 'distanceBtn',
-                		text: 'Distance',
-                		margin: '0 25%',
-                		ui: 'confirm'
-            		}     	
-            	]     	
+           			{
+            			xtype: 'formpanel',
+                		id: 'routePanel',
+						width: '100%',
+						height: '33%',
+						style: {
+    						border: 0
+						},
+            			items: [
+        					{
+                				xtype: 'fieldset',
+                				id: 'routeSet',
+                				defaults: {
+                            		labelWidth: '50%'
+    							},
+                        		margin: '2%',
+                				items: [
+                    				{
+                        				xtype: 'textfield',
+                        				cls: 'gray',
+                        				label: 'Apartment',
+                        				name: 'home',
+                        				value: 'Latitude, Longitude',
+                        				required: true,
+                        				listeners: {
+                        					focus: function (field,event,options) {
+                        						var fieldset = Ext.getCmp('routeSet');
+                        						fieldset.setActiveItem(field);
+                        					}
+                        				}
+                    				},	
+                   					{
+                        				xtype: 'textfield',
+                        				cls: 'gray',
+                        				label: 'Workplace',
+                        				name: 'work',
+                        				value: 'Latitude, Longitude',
+                        				required: true,
+                        				listeners: {
+                        					focus: function (field,event,options) {
+                        						var fieldset = Ext.getCmp('routeSet');
+                        						fieldset.setActiveItem(field);		
+                        					}
+                        				}
+                    				}
+                				]
+            				},
+            				{
+                				xtype: 'button',
+                				id: 'distanceBtn',
+                				text: 'Distance',
+                				margin: '0 25%',
+                				ui: 'confirm'
+            				}     	
+            			]     	
+        			}
+        		]
         	}
         ]
     },
@@ -186,6 +229,7 @@ Ext.define('Truespeed.view.Map', {
 		
     },
     
+    /*
     addControl: function(map) {
   		
   		var helpControlDiv = document.createElement('div');
@@ -232,6 +276,7 @@ Ext.define('Truespeed.view.Map', {
   		}
   		
 	},
+	*/
 
     onDistanceTap: function() {
     	

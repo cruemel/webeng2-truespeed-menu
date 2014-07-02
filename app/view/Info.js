@@ -25,7 +25,7 @@ Ext.define('Truespeed.view.Info', {
 				html: [
 					"<h3>About</h3>",
 					"<p>Truespeed is an application to compare different vehicles in reference of speed. The calculation is based on the approach, that speed is not only a result of the way divided through time you need to drive that way, but also the time you need to pay for the vehicle.</p>",
-					"<p>Enter your own values and find your fastest transport solution.</p>",
+					"<p>Enter your own values and find your fastest transport.</p>",
 					"<h3>Idea</h3>",
 					"<p>This app is based on an idea by Loris Tissino.</p>",
 					"<h3>Contact</h3>",
