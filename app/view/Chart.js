@@ -15,16 +15,13 @@ Ext.define('Truespeed.view.Chart', {
     ],
 
     config: {
-    
-    	title: 'Chart',
     	
         layout: {
             type: 'vbox'
         },
         
         styleHtmlContent: true,
-        scrollable: true,
-    	
+        
         items: [
             {
             	xtype: 'chart',
@@ -66,10 +63,9 @@ Ext.define('Truespeed.view.Chart', {
                             fontSize: '1em',
                             fontFamily: 'Andale Mono, monospace',
                             renderer: function (text) {
-                            	var records = Truespeed.controller.Functions.getUnits();
-                            	var distance = records.distance;
+                            	var units = Truespeed.controller.Functions.getOptions();
                             	var unit = 'km/h';
-                            	if (distance == 'mi') {
+                            	if (units.distance == 'mi') {
                             		unit = 'mph';
                             	}
          						return  text + ' ' + unit;
@@ -78,10 +74,11 @@ Ext.define('Truespeed.view.Chart', {
                         
                         listeners:{
                         	itemtap: function(me, item, event) {	
-								// console.log(item.record.data.id);
-								var tables = Ext.data.StoreManager.get('Users');
-								tables.getData().getAt(0).set('vehicle', item.record.data.id);
-								var mainScreen = Ext.getCmp('mainScreen');
+								var number = item.record.data.id;
+								var users = Ext.data.StoreManager.get('Users');
+								users.getData().get(0).set('vehicle',number);
+								
+								var mainScreen = Ext.getCmp('startScreen');
     							mainScreen.setActiveItem(Ext.getCmp('textScreen'));
 							}
 				        },
@@ -158,11 +155,12 @@ Ext.define('Truespeed.view.Chart', {
             },
                 
             {
+            	xtype: 'panel',
             	id: 'chart_caption',
             	width: '100%',
             	flex: 1,
             	html: [
-					"<p>(Click on a bar, to see the calculation details)</p>"
+					"<p>(Click on a bar, to see the calculation details.)</p>"
 				].join(""),
 				style: {
 					color: 'gray',
@@ -170,16 +168,15 @@ Ext.define('Truespeed.view.Chart', {
 					textAlign: 'center'
 				}	
 			}
-        ],
-        
-         listeners: {
-        	painted: function() {
-        		Truespeed.controller.Functions.compare();
-        		var backButton = Ext.getCmp('backBtn');
-            	backButton.show();
-        		var mapButton = Ext.getCmp('mapBtn');
-            	mapButton.hide();
-            }
-        }   
-    }
+        ]
+    },
+    
+    initialize: function() {
+		// this.callParent(arguments);
+    	this.on("activate", function() {
+    		Truespeed.controller.Functions.compare();
+            var mapButton = Ext.getCmp('mapBtn');
+            mapButton.hide();      		
+		});
+	}
 });

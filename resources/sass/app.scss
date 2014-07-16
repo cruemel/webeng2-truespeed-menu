@@ -35,15 +35,13 @@ $toolbar-spacing: 1em;
 @import 'sencha-touch/default/src/tab/_Panel.scss';
 */
 
-@include icon('settings','y');
-@include icon('maps','G');
-@include icon('home','H');
-@include icon('text','F');
-@include icon('chart','Y');
 @include icon('data','b');
 @include icon('info','i');
-@include icon('help','?');
 @include icon('close','D');
+@include icon('map','G');
+@include icon('home','H');
+@include icon('back','[');
+@include icon('help','?');
 
 // xtypes
 

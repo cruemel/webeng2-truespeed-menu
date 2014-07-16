@@ -1,4 +1,4 @@
-Ext.define('Truespeed.view.MapHelp', {
+Ext.define('Truespeed.view.Help.Map', {
     extend: 'Ext.Panel',
     xtype: "MapHelp",
     
@@ -9,8 +9,8 @@ Ext.define('Truespeed.view.MapHelp', {
 
     config: {
        	top: '10%',
-       	left: '10%',
-        width: '80%',
+       	left: '5%',
+        width: '90%',
         height: '80%',
         styleHtmlContent: true,
         scrollable: true,

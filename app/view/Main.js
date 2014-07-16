@@ -4,36 +4,30 @@ Ext.define('Truespeed.view.Main', {
     id: 'mainScreen',
     
     requires: [
-        'Ext.TitleBar', 'Ext.Button', 'Ext.Menu', 'Truespeed.view.Home', 'Truespeed.view.Chart', 'Truespeed.view.Text','Truespeed.view.Options', 'Truespeed.view.Data', 'Truespeed.view.Info', 'Truespeed.view.Map'
+        'Ext.TitleBar', 'Ext.Button', 'Ext.Menu', 'Truespeed.view.Start','Truespeed.view.Options', 'Truespeed.view.Data','Truespeed.view.Info','Truespeed.view.Map'
     ],
     
     config: {
-        
-        fullscreen: true,
-        layout: {
+       
+       layout: {
         	type: 'card'
         },
-        
+         
         items: [ 
             {
-                xtype: 'titlebar',
+            	xtype: 'titlebar',
                 id: 'titlebar',   
                 docked: 'top',
                 title: 'truespeed',
                 
-                items: [
-                	 {
-                        xtype: 'button',
-                        id: 'backBtn',
-                        iconCls: 'arrow_left'
-                    },
+                items: [  
                     {
                         xtype: 'button',
                         id: 'mapBtn',
-                        iconCls: 'maps',
+                        iconCls: 'map',
                         align: 'left',
-                        hidden: true
-                    },      
+                       	hidden: true
+                    },        
                     {
                         xtype: 'button',
                         id: 'menuBtn',
@@ -46,13 +40,7 @@ Ext.define('Truespeed.view.Main', {
                 ]
             },
             {
-                xtype: 'homeView'
-            },
-             {
-                xtype: 'chartView'
-            },
-            {
-                xtype: 'textView'
+                xtype: 'startView'
             },
              {
                 xtype: 'optionsView'
@@ -60,17 +48,12 @@ Ext.define('Truespeed.view.Main', {
              {
                 xtype: 'dataView'
             },
-            /*
-             {
-                xtype: 'helpView'
-            },
-            */
-             {
+            {
                 xtype: 'infoView'
             },
-            {
+             {
                 xtype: 'mapView'
-            }              
+            }
         ]
     },
     
@@ -111,17 +94,6 @@ Ext.define('Truespeed.view.Main', {
                     mainScreen.setActiveItem(Ext.getCmp('dataScreen'));
                 }
             },
-            /*
-            {
-                text: 'Help',
-                iconCls: 'help',
-                scope: this,
-                handler: function() {
-                    Ext.Viewport.hideMenu(side);
-                    mainScreen.setActiveItem(Ext.getCmp('helpScreen'));
-                }
-            },
-            */
             {
                 text: 'About',
                 id: 'aboutBtn',
@@ -133,14 +105,16 @@ Ext.define('Truespeed.view.Main', {
                 }
             },
             {
-            	text: 'Home',
-            	id: 'homeBtn',
+                text: 'Home',
+                id: 'homeBtn',
                 iconCls: 'home',
                 docked: 'bottom',
                 scope: this,
                 handler: function() {
                     Ext.Viewport.hideMenu(side);
-                    mainScreen.setActiveItem(Ext.getCmp('homeScreen'));
+                    var startScreen = Ext.getCmp('startScreen');
+       				startScreen.setActiveItem(Ext.getCmp('homeScreen'));
+                    mainScreen.setActiveItem(startScreen);
                 }
             }
         ];

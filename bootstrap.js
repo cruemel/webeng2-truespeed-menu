@@ -746,26 +746,27 @@ Ext.ClassManager.addNameAlternateMappings({
   "Truespeed.controller.Functions": [],
   "Truespeed.controller.Main": [],
   "Truespeed.model.Chart": [],
-  "Truespeed.model.Settings": [],
+  "Truespeed.model.Options": [],
   "Truespeed.model.Times": [],
   "Truespeed.model.Users": [],
   "Truespeed.model.Vehicles": [],
   "Truespeed.model.Ways": [],
   "Truespeed.store.Chart": [],
-  "Truespeed.store.Settings": [],
+  "Truespeed.store.Options": [],
   "Truespeed.store.Times": [],
   "Truespeed.store.Users": [],
   "Truespeed.store.Vehicles": [],
   "Truespeed.store.Ways": [],
   "Truespeed.view.Chart": [],
   "Truespeed.view.Data": [],
-  "Truespeed.view.DataHelp": [],
+  "Truespeed.view.Help.Data": [],
+  "Truespeed.view.Help.Map": [],
   "Truespeed.view.Home": [],
   "Truespeed.view.Info": [],
   "Truespeed.view.Main": [],
   "Truespeed.view.Map": [],
-  "Truespeed.view.MapHelp": [],
   "Truespeed.view.Options": [],
+  "Truespeed.view.Start": [],
   "Truespeed.view.Text": [],
   "Truespeed.view.Time": [],
   "Truespeed.view.Vehicle": [],
@@ -1716,7 +1717,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Truespeed.controller.Functions": [],
   "Truespeed.controller.Main": [],
   "Truespeed.model.Chart": [],
-  "Truespeed.model.Settings": [],
+  "Truespeed.model.Options": [],
   "Truespeed.model.Times": [],
   "Truespeed.model.Users": [],
   "Truespeed.model.Vehicles": [],
@@ -1724,7 +1725,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Truespeed.store.Chart": [
     "store.Chart"
   ],
-  "Truespeed.store.Settings": [],
+  "Truespeed.store.Options": [],
   "Truespeed.store.Times": [],
   "Truespeed.store.Users": [],
   "Truespeed.store.Vehicles": [],
@@ -1735,8 +1736,11 @@ Ext.ClassManager.addNameAliasMappings({
   "Truespeed.view.Data": [
     "widget.dataView"
   ],
-  "Truespeed.view.DataHelp": [
+  "Truespeed.view.Help.Data": [
     "widget.DataHelp"
+  ],
+  "Truespeed.view.Help.Map": [
+    "widget.MapHelp"
   ],
   "Truespeed.view.Home": [
     "widget.homeView"
@@ -1750,11 +1754,11 @@ Ext.ClassManager.addNameAliasMappings({
   "Truespeed.view.Map": [
     "widget.mapView"
   ],
-  "Truespeed.view.MapHelp": [
-    "widget.MapHelp"
-  ],
   "Truespeed.view.Options": [
     "widget.optionsView"
+  ],
+  "Truespeed.view.Start": [
+    "widget.startView"
   ],
   "Truespeed.view.Text": [
     "widget.textView"

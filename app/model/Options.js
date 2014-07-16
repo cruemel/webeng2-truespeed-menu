@@ -1,4 +1,4 @@
-Ext.define('Truespeed.model.Settings', {
+Ext.define('Truespeed.model.Options', {
     extend: 'Ext.data.Model',
     requires: ['Ext.data.identifier.Uuid'],
     config: {

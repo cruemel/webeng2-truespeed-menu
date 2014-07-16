@@ -83,15 +83,16 @@ Ext.define('Truespeed.view.Way', {
             	]
             }     
     	],
+    	
     	listeners: {
         	painted: function() {
-        		Truespeed.controller.Functions.updateWay();
-        		var backButton = Ext.getCmp('backBtn');
-            	backButton.hide();
-        		var mapButton = Ext.getCmp('mapBtn');
-            	mapButton.show();
+            	
+            	Truespeed.controller.Functions.updateWay();
+            	var mapButton = Ext.getCmp('mapBtn');
+            	mapButton.hide();
+            		
         	}
-        }
+    	}   
     }
         
 });

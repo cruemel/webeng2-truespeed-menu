@@ -86,7 +86,32 @@
          * List of items in the CACHE MANIFEST section
          */
         "cache": [
-            "index.html"
+            "index.html",
+            
+            // css
+        	"resources/css/app.css",
+            
+            // data 
+    		"resources/data/chart.json",
+            "resources/data/options.json",
+            "resources/data/times.json",
+            "resources/data/users.json",
+            "resources/data/vehicles.json",
+            "resources/data/ways.json",
+            
+            // icons 
+        	"favicon.ico",
+            "apple-touch-icon-precomposed.png",
+            
+            // loading
+        	"resources/loading/coming.gif",
+            
+            // images 
+        	"resources/images/bike.png",
+            "resources/images/car.png",
+            "resources/images/public.png",
+            "resources/images/home.png",
+            "resources/images/work.png"
         ],
         /**
          * List of items in the NETWORK section

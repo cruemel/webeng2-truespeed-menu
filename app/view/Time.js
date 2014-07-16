@@ -87,13 +87,11 @@ Ext.define('Truespeed.view.Time', {
     	
     	listeners: {
         	painted: function() {
-        		Truespeed.controller.Functions.updateTime();
-        		var backButton = Ext.getCmp('backBtn');
-            	backButton.hide();
+            	Truespeed.controller.Functions.updateTime();
             	var mapButton = Ext.getCmp('mapBtn');
-            	mapButton.hide();
+            	mapButton.hide(); 
         	}
-        }
-    }   
+    	}   
+    }
     
 });

@@ -7,7 +7,7 @@ Ext.define('Truespeed.view.Vehicle', {
         'Ext.form.FieldSet',
         'Ext.field.Number',
         'Ext.field.Select',
-        'Truespeed.view.DataHelp'
+        'Truespeed.view.Help.Data'
     ],
     
     config: {
@@ -137,21 +137,14 @@ Ext.define('Truespeed.view.Vehicle', {
     	
     	listeners: {
         	painted: function() {
-        		Truespeed.controller.Functions.updateVehicle();
-        		var backButton = Ext.getCmp('backBtn');
-            	backButton.hide();
+            	
+            	Truespeed.controller.Functions.updateVehicle();
             	var mapButton = Ext.getCmp('mapBtn');
             	mapButton.hide();
-        	
-        		var users = Truespeed.controller.Functions.getTables();
-        		if (users.name != "You") {
-        			var overlay = Ext.create('Truespeed.view.DataHelp');
-            		Ext.Viewport.setMasked({});
-            		Ext.Viewport.add(overlay);
-            		overlay.show();		
-            	}
-            }
-    	}
-    }   
+            		
+        	}
+    	}   
+    	
+    }
     
 });

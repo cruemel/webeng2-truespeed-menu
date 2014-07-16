@@ -2,13 +2,16 @@ Ext.define('Truespeed.controller.Main', {
     extend: 'Ext.app.Controller',
     
     config: {
-    	stores: ['Settings', 'Users', 'Ways', 'Vehicles', 'Times', 'Chart'],
+    	stores: ['Options', 'Users', 'Ways', 'Vehicles', 'Times', 'Chart'],
         control: {
-        	'#backBtn': {
-                tap: 'onBackTap'
+        	'#vehicleImg': {
+                tap: 'onImgTap'
             },
         	'#changeBtn': {
                 tap: 'onChangeTap'
+            },
+            '#enterBtn': {
+                tap: 'onEnterTap'
             },
             '#nextBtn': {
                 tap: 'onNextTap'
@@ -29,23 +32,33 @@ Ext.define('Truespeed.controller.Main', {
     },
     
     init: function() {
-    	var users = {
-			name: 'Mario',
-    		vehicle: 1,
-    		way: 1,
-    		time: 1
-		}
-		Truespeed.controller.Functions.setTables(users);
+		
 		var units = {
 			distance: "km",
     		capacity: "ltr",
     		currency: "EUR"	
-		}
-       	Truespeed.controller.Functions.setUnits(units);
+		};
+		
+       	Truespeed.controller.Functions.setOptions(units);
+       	
+       	var mario = {
+			name: 'Mario',
+    		vehicle: 1,
+    		way: 1,
+    		time: 1
+		};
+		
+		Truespeed.controller.Functions.setUsers(mario);
 	},
 	
+	onImgTap: function() {
+        var startScreen = Ext.getCmp('startScreen');
+       	startScreen.setActiveItem(Ext.getCmp('chartScreen'));
+    },
+	
+	/*
 	onBackTap: function() {
-		var mainScreen = Ext.getCmp('mainScreen');
+		var mainScreen = Ext.getCmp('startScreen');
 		
 		if (mainScreen.getActiveItem() == Ext.getCmp('textScreen')) {
 			mainScreen.setActiveItem(Ext.getCmp('chartScreen'));
@@ -54,13 +67,26 @@ Ext.define('Truespeed.controller.Main', {
         	mainScreen.setActiveItem(Ext.getCmp('homeScreen'));
         }
     },
+    */
 
      onChangeTap: function() {
      	var formPanel = Ext.getCmp('optionsPanel');
         var units = formPanel.getValues();
-     	Truespeed.controller.Functions.setUnits(units);
+     	Truespeed.controller.Functions.setOptions(units);
        	var mainScreen = Ext.getCmp('mainScreen');
-    	mainScreen.setActiveItem(Ext.getCmp('homeScreen'));
+    	mainScreen.setActiveItem(Ext.getCmp('startScreen'));
+    },
+    
+    onEnterTap: function() {
+        var mainScreen = Ext.getCmp('mainScreen');
+        mainScreen.setActiveItem(Ext.getCmp('dataScreen'));
+        var users = Truespeed.controller.Functions.getUsers();
+        if (users.name != "You") {
+        	var overlay = Ext.create('Truespeed.view.Help.Data');
+            Ext.Viewport.setMasked({});
+            Ext.Viewport.add(overlay);
+            overlay.show();		
+        };		
     },
     
     onMapTap: function() {
@@ -79,17 +105,6 @@ Ext.define('Truespeed.controller.Main', {
 		 setTimeout(function() {
         	Truespeed.controller.Functions.saveVehicle();
         }, 300);
-        
-        var mario = Truespeed.controller.Functions.getTables();
-        
-        var you = {
-			name: 'You',
-    		vehicle: mario.vehicle,
-    		way: mario.way,
-    		time: mario.time
-		}
-		
-		Truespeed.controller.Functions.setTables(you);
 		
 		var buttons = Ext.getCmp('inputBtn');
         buttons.setPressedButtons(1);
@@ -116,12 +131,23 @@ Ext.define('Truespeed.controller.Main', {
         setTimeout(function() {
         	Truespeed.controller.Functions.saveTime();
         }, 300);
+		
+		var mario = Truespeed.controller.Functions.getUsers();
+		
+		var you = {
+			name: 'You',
+			vehicle: mario.vehicle,
+    		way: mario.way,
+    		time: mario.time
+		};
+		
+		Truespeed.controller.Functions.setUsers(you);
         
-        var mainScreen = Ext.getCmp('mainScreen');
-    	mainScreen.setActiveItem(Ext.getCmp('homeScreen'));
+        var startScreen = Ext.getCmp('startScreen');
+    	startScreen.setActiveItem(Ext.getCmp('homeScreen'));
     	
-    	var mapButton = Ext.getCmp('mapBtn');
-        mapButton.hide();
+    	var mainScreen = Ext.getCmp('mainScreen');
+    	mainScreen.setActiveItem(startScreen);
 		
     }
 

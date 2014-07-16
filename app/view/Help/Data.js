@@ -1,4 +1,4 @@
-Ext.define('Truespeed.view.DataHelp', {
+Ext.define('Truespeed.view.Help.Data', {
     extend: 'Ext.Panel',
     xtype: "DataHelp",
     
@@ -9,8 +9,8 @@ Ext.define('Truespeed.view.DataHelp', {
 
     config: {
        	top: '10%',
-       	left: '10%',
-        width: '80%',
+       	left: '5%',
+        width: '90%',
         height: '80%',
         styleHtmlContent: true,
         scrollable: true,
@@ -40,7 +40,7 @@ Ext.define('Truespeed.view.DataHelp', {
 					"<p>- Than alter its costs, the way and your time.</p>",
 					"<p>- Not all parameters need a value (ex. fuel price).",
 					"<p>- Only parameters with a star need to have a value greater than 0.</p>",
-					"<p>Privacy: actually there will be no data stored (on the server), eg. your data is lost, if you close the app.</p>"
+					"<p>Privacy: there will be no data stored (on the server), eg. your data is lost, if you close the app.</p>"
 				].join("") 
 			}
 		]

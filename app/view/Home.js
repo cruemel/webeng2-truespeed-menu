@@ -14,10 +14,10 @@ Ext.define('Truespeed.view.Home', {
         },
         
         styleHtmlContent: true,
-        scrollable: true,
            	
         items: [ 
             {
+            	xtype: 'panel',
             	id: 'tagline',
             	flex: 1,
             	cls: 'textview',
@@ -29,19 +29,14 @@ Ext.define('Truespeed.view.Home', {
             	flex: 6,
             	src: 'resources/images/car.png',
             	width: '100%',
-            	height: 'auto',
-            	listeners: {
-    				tap: function() {
-        				var mainView = Ext.getCmp('mainScreen');
-            			mainView.setActiveItem(Ext.getCmp('chartScreen'));
-            		}
-   				}
+            	height: 'auto'
         	},
         	{
+        		xtype: 'panel',
             	id: 'vehileCap',
             	flex: 1,
             	html: [
-					"<p>(Click on the vehicle, to see a speed comparison)</p>"
+					"<p>(Click on the vehicle, to compare the speed.)</p>"
 				].join(""),
 				style: {
 					color: 'gray',
@@ -49,18 +44,19 @@ Ext.define('Truespeed.view.Home', {
 					textAlign: 'center'
 				}	
 			}
-    	],
+    	]
     	
-    	listeners: {
-            painted: function() {
-        		Truespeed.controller.Functions.updateTagline();
-        		Truespeed.controller.Functions.updateImage();
-        		var backButton = Ext.getCmp('backBtn');
-            	backButton.hide();
-        		var mapButton = Ext.getCmp('mapBtn');
-            	mapButton.hide();
-            }
-        }
-    }
+    },
+    
+    initialize: function() {
+		this.callParent(arguments);
+		
+		this.on("activate", function() {
+			Truespeed.controller.Functions.updateTagline();
+			Truespeed.controller.Functions.updateImage();
+            var mapButton = Ext.getCmp('mapBtn');
+            mapButton.hide();
+		});
+	}
     
 });

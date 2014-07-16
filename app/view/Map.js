@@ -6,7 +6,7 @@ Ext.define('Truespeed.view.Map', {
     requires: [
         'Ext.Map',
         'Ext.Button',
-        'Truespeed.view.MapHelp'
+        'Truespeed.view.Help.Map'
     ],
 
     config: {
@@ -43,7 +43,7 @@ Ext.define('Truespeed.view.Map', {
                                 id: 'helpBtn',
                                 pressed: false,
                                 handler: function () {
-                                    var overlay = Ext.create('Truespeed.view.MapHelp');
+                                    var overlay = Ext.create('Truespeed.view.Help.Map');
             						Ext.Viewport.setMasked({});
             						Ext.Viewport.add(overlay);
             						overlay.show();	
